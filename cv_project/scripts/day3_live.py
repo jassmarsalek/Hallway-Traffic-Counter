@@ -12,6 +12,31 @@ try:
         frame = picam2.capture_array()
         frame = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)
 
+        hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
+        lower_blue = (100, 100, 50)
+        upper_blue = (130, 255, 255)
+        mask = cv2.inRange(hsv, lower_blue, upper_blue)
+
+        result = cv2.bitwise_and(frame, frame, mask=mask)
+
+        small = cv2.resize(frame, (320, 240))
+
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+        blurred = cv2.GaussianBlur(gray, (15, 15), 0)
+# Kernel size (15,15) must be odd numbers; larger = more blur
+
+# Rectangle: (image, top-left corner, bottom-right corner, color BGR, thickness)
+        cv2.rectangle(frame, (50, 50), (200, 200), (0, 255, 0), 2)
+
+# Circle: (image, center, radius, color BGR, thickness)
+        cv2.circle(frame, (320, 240), 30, (255, 0, 0), 3)
+
+# Text: (image, text, origin, font, scale, color BGR, thickness)
+        cv2.putText(frame, 'Hello CV!', (10, 30),
+            cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+
         cv2.imshow('Live Feed', frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
