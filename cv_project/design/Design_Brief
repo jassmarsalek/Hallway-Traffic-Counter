@@ -1,0 +1,44 @@
+# Design Brief — Hallway Traffic Counter
+
+### Problem
+
+School staff and administrators may need a way to monitor how many people move through a hallway without manually counting everyone. Manual counting can take time and can be difficult during busy periods.
+
+### Stakeholders
+
+The main stakeholders are school staff and administrators who may want information about hallway traffic. Students and other people walking through the hallway are also affected by the system because they are the people being detected.
+
+### Proposed Solution
+
+Our proposed solution is a Raspberry Pi 4 with a Raspberry Pi Camera Module V2 mounted near a hallway. The camera will capture video, and computer vision software will detect people in the camera's field of view. The system will process the detections and maintain a count of people moving through the hallway.
+
+### Design Criteria
+
+The system should:
+
+* Detect people in the camera's field of view.
+* Count people moving through the hallway.
+* Process the camera feed using the Raspberry Pi 4.
+* Provide a clear and understandable traffic count.
+* Work under different hallway conditions, such as different distances, angles, and numbers of people.
+* Produce consistent results during repeated tests.
+
+### Design Constraints
+
+The system must:
+
+* Use a Raspberry Pi 4.
+* Use a Raspberry Pi Camera Module V2.
+* Use computer vision techniques practiced during the project.
+* Operate within the processing limitations of the Raspberry Pi.
+* Be practical to mount and use in a hallway.
+* Avoid requiring a person to manually count everyone passing through.
+
+### Expected Output
+
+The final system should display or record the number of people detected as they move through the hallway.
+ The system should use the camera feed and computer vision detection to turn people passing through the hallway into a measurable traffic count.
+
+### Design Goal
+
+The overall goal is to create a practical computer vision system that can automatically monitor hallway traffic and provide a useful count of people moving through the area.
